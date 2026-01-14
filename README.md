@@ -31,7 +31,7 @@ This repository demonstrates hands-on experience with:
 - **Kali Linux** – Attack simulation (controlled testing)
 - **VirtualBox** – Virtualization platform
 
-A detailed network diagram is available in the `network-diagram/` directory.
+A detailed network diagram is available in the `soc-lab-network-diagram.png`.
 
 ---
 
