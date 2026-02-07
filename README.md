@@ -5,6 +5,7 @@ The lab focuses on **log collection, threat detection, alert analysis, and netwo
 
 This repository demonstrates hands-on experience with:
 - SIEM deployment and alert analysis
+- Network IDS Telemetry (Suricata)
 - Endpoint telemetry (Sysmon)
 - Network security and firewalling
 - Attack detection and investigation
