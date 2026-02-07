@@ -24,12 +24,13 @@ This repository demonstrates hands-on experience with:
 ## Architecture & Tools
 
 ### Core Components
-- **pfSense** – Firewall, NAT, and network segmentation
-- **Wazuh** – SIEM and log correlation
-- **Windows 10 VM** – Endpoint telemetry with Sysmon
-- **Ubuntu Server** – Wazuh manager and Linux monitoring
-- **Kali Linux** – Attack simulation (controlled testing)
-- **VirtualBox** – Virtualization platform
+* pfSense – Firewall, NAT, and network segmentation
+* Wazuh – SIEM and log correlation
+* Suricata – Network IDS (EVE JSON alerts forwarded into Wazuh)
+* Windows 10 VM – Endpoint telemetry with Sysmon
+* Ubuntu Server – Wazuh manager and Linux monitoring
+* Kali Linux – Attack simulation (controlled testing)
+* VirtualBox – Virtualization platform
 
 A detailed network diagram is available in the `soc-lab-network-diagram.png`.
 
@@ -47,6 +48,17 @@ All traffic passes through pfSense, allowing full visibility and control.
 
 ---
 
+## Repository Structure
+
+* `attacks/`   – Attack scenarios + detection notes
+* `windows/`   – Sysmon + Windows telemetry setup
+* `linux/`     – Linux telemetry and baseline configs
+* `pfsense/`   – Firewall configuration and routing notes
+* `wazuh/`     – Wazuh setup and rules/decoders notes
+* `suricata/`  – Network IDS setup (EVE JSON → Wazuh), ruleset management, validation
+
+---
+
 ## Detection & Monitoring
 ### Endpoint Telemetry
 - Sysmon installed on Windows endpoint
@@ -60,6 +72,16 @@ All traffic passes through pfSense, allowing full visibility and control.
 - Logs forwarded to Wazuh Manager
 - Alerts analyzed and documented
 - Detection results mapped to attacker behavior
+
+### Network IDS Telemetry (Suricata)
+Suricata runs as the network IDS sensor and writes alerts/events to:
+`/var/log/suricata/eve.json`
+
+A Wazuh agent monitors `eve.json` and forwards the JSON events to the Wazuh manager for correlation and visualization.
+In Wazuh, Suricata events can be hunted with a filter like:
+`rule.groups:suricata`
+
+See: `suricata/README.md`.
 
 ---
 
