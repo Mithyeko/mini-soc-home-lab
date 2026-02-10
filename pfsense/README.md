@@ -48,8 +48,6 @@ pfSense GUI: `https://192.168.50.1`
 **Screenshot placeholder:** `screenshots/02-dhcp-leases.png`  
 *Capture:* pfSense **Status → DHCP Leases** page showing the hosts above
 
-> Note: If you want these IPs to *never change*, use **DHCP Static Mappings** (recommended for labs).
-
 ---
 
 ## VirtualBox network settings (pfSense VM)
